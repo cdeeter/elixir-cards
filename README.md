@@ -1,5 +1,7 @@
 # Cards
 
+Cards module that can create a deck of cards, shuffle decks, and deal hands
+
 Following along with [The Complete Elixir And Phoenix Bootcamp and Tutorial](https://www.udemy.com/the-complete-elixir-and-phoenix-bootcamp-and-tutorial/)
 
 ## Installation
