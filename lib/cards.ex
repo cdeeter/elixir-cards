@@ -7,7 +7,8 @@ defmodule Cards do
     Returns a deck (list of strings) representing a deck of playing cards
   """
   def create_deck do
-    values = ["ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"]
+    values = ["ace", "two", "three", "four", "five", "six",
+              "seven", "eight", "nine", "ten", "jack", "queen", "king"]
     suits = ["hearts", "diamonds", "spades", "clubs"]
 
     for suit <- suits, value <- values do
@@ -24,7 +25,14 @@ defmodule Cards do
 
   @doc """
     Accepts a `deck` (list) and a `card` (string) and returns a boolean
-    based on whether or not that `deck` contains that `card`.
+    based on whether or not that `deck` contains the given `card`.
+
+  ## Example
+
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "ace of spades")
+      true
+
   """
   def contains?(deck, card) do
     Enum.member?(deck, card)
@@ -38,9 +46,9 @@ defmodule Cards do
   ## Examples
 
       iex> deck = Cards.create_deck
-      iex> {hand, deck} = Cards.deal(deck, 1)
+      iex> {hand, _deck} = Cards.deal(deck, 1)
       iex> hand
-      ["Ace of Spades"]
+      ["ace of hearts"]
 
   """
   def deal(deck, hand_size) do
@@ -70,7 +78,7 @@ defmodule Cards do
     of the size you passed in.
   """
   def create_hand(hand_size) do
-    {hand, _deck} = create_deck |> Cards.shuffle |> Cards.deal(hand_size)
+    {hand, _deck} = create_deck() |> Cards.shuffle |> Cards.deal(hand_size)
 
     hand
   end
